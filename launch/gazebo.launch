@@ -1,0 +1,26 @@
+<launch>
+  <!-- Load URDF vào tham số robot_description -->
+  <param name="robot_description" textfile="$(find xe_4)/urdf/xe_4.urdf" />
+
+  <!-- Khởi động Gazebo -->
+  <node name="gazebo" pkg="gazebo_ros" type="gzserver" args="-e ode $(find xe_4)/worlds/empty.world" />
+<param name="use_sim_time" value="true" />
+  <!-- Gazebo GUI -->
+  <node name="gazebo_gui" pkg="gazebo_ros" type="gzclient" />
+
+  <!-- Spawn robot vào Gazebo bằng tham số robot_description -->
+
+  <!-- Robot state publisher để xuất bản TF -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen" />
+
+  <!-- Load controller configuration -->
+  <rosparam file="$(find xe_4)/config/controller.yaml" command="load" />
+
+  <!-- Spawn robot vào Gazebo bằng tham số robot_description -->
+  <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model xe_4 -x 0 -y 0 -z 0" output="screen" />
+
+  <!-- Spawn mô hình từ model.sdf -->
+  <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" args="-file $(find xe_4)/worlds/map2/model.sdf -sdf -model my_model -x -3.0 -y 3.0 -z 0" output="screen" />
+  <!-- Khởi động controller -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" args="joint_state_controller skid_steer_controller" />
+</launch>
