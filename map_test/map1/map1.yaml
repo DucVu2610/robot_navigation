@@ -1,4 +1,4 @@
-image: /home/duc/catkin_ws/src/xe_4/map_test/map1/map1.pgm
+image: map1.pgm
 resolution: 0.050000
 origin: [-51.224998, -51.224998, 0.000000]
 negate: 0

@@ -1,14 +1,13 @@
 <launch>
-    <!-- Tham số để chọn chế độ: tạo bản đồ (use_hector_slam) hoặc định vị (use_amcl) -->
+   
     <arg name="use_hector_slam" default="false" />
     <arg name="use_amcl" default="true" />
     <arg name="map_file" default="$(find xe_4)/map_test/map1/map_1.yaml" />
 
 <param name="use_sim_time" value="true" />
-    <!-- Chạy Hector SLAM để tạo bản đồ (nếu được bật) -->
+  
  
 
-    <!-- Chạy AMCL để định vị (nếu được bật) -->
     <group if="$(arg use_amcl)">
         <!-- Tải bản đồ từ file -->
         <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)" />

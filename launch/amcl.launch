@@ -1,6 +1,6 @@
 <launch>
 
-  <arg name="base_link_name" default="base_link"/>
+ 
   <!-- Arguments -->
   <arg name="scan_topic" default="scan"/>
   <arg name="initial_pose_x" default="3.0"/>
@@ -16,7 +16,7 @@
     <param name="update_min_d" value="0.10"/>
     <param name="update_min_a" value="0.10"/>
     <param name="resample_interval" value="1"/>
-    <param name="transform_tolerance" value="0.2"/>
+    <param name="transform_tolerance" value="0.5"/>
     <param name="recovery_alpha_slow" value="0.00"/>
     <param name="recovery_alpha_fast" value="0.00"/>
     <param name="initial_pose_x" value="$(arg initial_pose_x)"/>

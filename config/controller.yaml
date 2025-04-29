@@ -13,6 +13,6 @@ xe_4:
     pose_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.03]
     twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.03]
     cmd_vel_timeout: 0.25
-    enable_odom_tf: false  # Để plugin Gazebo xuất bản TF
+    enable_odom_tf: false
     wheel_separation: 0.240405
-    wheel_radius: 0.04  # wheelDiameter/2
+    wheel_radius: 0.04 
